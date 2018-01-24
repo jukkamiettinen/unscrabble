@@ -55,8 +55,7 @@ class ViewController: UIViewController {
                 findPossibleWords(
                     availableCharacters: "G****",
                     notAvailableCharacters: "",
-                    maxWordCount: 5,
-                    useHeuristics: true)
+                    maxWordCount: 5)
             } catch {
                 print(error)
             }
@@ -175,9 +174,8 @@ class ViewController: UIViewController {
      - parameter availableCharacters: Available characters
      - parameter notAvailableCharacters: Characters that word should not contain
      - parameter maxWordCount: max word length
-     - parameter useHeuristics: Should we use heuristics (much faster but not 100% accurate) or brute force.
      */
-    func findPossibleWords(availableCharacters: String, notAvailableCharacters: String, maxWordCount: Int, useHeuristics: Bool) {
+    func findPossibleWords(availableCharacters: String, notAvailableCharacters: String, maxWordCount: Int) {
         print("Searching")
 
         var matchingWords: [String] = []
