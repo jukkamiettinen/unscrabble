@@ -34,12 +34,15 @@ platform :ios do
     # Push the new commit and tag back to your git remote
     push_to_git_remote
 
-    get_certificates           # invokes cert
-    get_provisioning_profile   # invokes sigh
+    sync_code_signing(type: "appstore")
+
+    # get_certificates           # invokes cert
+    # get_provisioning_profile   # invokes sigh
     build_app(scheme: "Unscrabble2000",
             workspace: "Unscrabble2000.xcworkspace",
             include_bitcode: true)
     upload_to_testflight
+    pilot(skip_waiting_for_build_processing: true)
     slack(message: "Successfully distributed a new beta build")
   end
 end
