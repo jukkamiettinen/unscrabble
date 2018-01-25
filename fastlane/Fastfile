@@ -33,8 +33,8 @@ platform :ios do
 
     get_certificates           # invokes cert
     get_provisioning_profile   # invokes sigh
-    build_app(scheme: "Unscrabble",
-            workspace: "Unscrabble.xcworkspace",
+    build_app(scheme: "Unscrabble2000",
+            workspace: "Unscrabble2000.xcworkspace",
             include_bitcode: true)
     upload_to_testflight
     slack(message: "Successfully distributed a new beta build")

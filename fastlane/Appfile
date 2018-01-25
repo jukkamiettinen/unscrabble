@@ -1,7 +1,7 @@
-app_identifier "com.jukkamiettinen.Unscrabble" # The bundle identifier of your app
+app_identifier "com.jukkamiettinen.Unscrabble2000" # The bundle identifier of your app
 apple_id "jukka.p.miettinen@icloud.com" # Your Apple email address
 team_id "Y849S4R6L9"
-app_name "Unscrabble"
+app_name "Unscrabble2000"
 itc_team_id "Y849S4R6L9"
 
 # For more information about the Appfile, see:
