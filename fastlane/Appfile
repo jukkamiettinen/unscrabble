@@ -1,7 +1,7 @@
 app_identifier "com.jukkamiettinen.Unscrabble2000" # The bundle identifier of your app
 apple_id "jukka.p.miettinen@icloud.com" # Your Apple email address
 team_id "Y849S4R6L9"
-itc_team_id "Y849S4R6L9"
+itc_team_id "118467683"
 
 # For more information about the Appfile, see:
 #     https://docs.fastlane.tools/advanced/#appfile
