@@ -1,0 +1,656 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2868AFEF96FA3322649AD230 /* Pods_Unscrabble2000.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF6A97A9F2048ACD9451968 /* Pods_Unscrabble2000.framework */; };
+		A62134D0200E31A100C31BE5 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = A62134CF200E31A100C31BE5 /* words.txt */; };
+		A6806B392019E58B00CCFC25 /* Unscrabble2000Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6806B382019E58B00CCFC25 /* Unscrabble2000Tests.swift */; };
+		A6806B472019E59E00CCFC25 /* Unscrabble2000UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6806B462019E59E00CCFC25 /* Unscrabble2000UITests.swift */; };
+		A6CDCB0D200DE67F00E137B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CDCB0C200DE67F00E137B2 /* AppDelegate.swift */; };
+		A6CDCB0F200DE67F00E137B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CDCB0E200DE67F00E137B2 /* ViewController.swift */; };
+		A6CDCB12200DE67F00E137B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CDCB10200DE67F00E137B2 /* Main.storyboard */; };
+		A6CDCB15200DE67F00E137B2 /* unscrabble.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6CDCB13200DE67F00E137B2 /* unscrabble.xcdatamodeld */; };
+		A6CDCB17200DE67F00E137B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6CDCB16200DE67F00E137B2 /* Assets.xcassets */; };
+		A6CDCB1A200DE67F00E137B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CDCB18200DE67F00E137B2 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A6806B3B2019E58B00CCFC25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6CDCB01200DE67F00E137B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6CDCB08200DE67F00E137B2;
+			remoteInfo = Unscrabble2000;
+		};
+		A6806B492019E59E00CCFC25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6CDCB01200DE67F00E137B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6CDCB08200DE67F00E137B2;
+			remoteInfo = Unscrabble2000;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7A6FA236E43B3311D986BD50 /* Pods-Unscrabble2000.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unscrabble2000.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unscrabble2000/Pods-Unscrabble2000.debug.xcconfig"; sourceTree = "<group>"; };
+		7CF6A97A9F2048ACD9451968 /* Pods_Unscrabble2000.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unscrabble2000.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A62134CF200E31A100C31BE5 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		A6806B362019E58B00CCFC25 /* Unscrabble2000Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Unscrabble2000Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6806B382019E58B00CCFC25 /* Unscrabble2000Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unscrabble2000Tests.swift; sourceTree = "<group>"; };
+		A6806B3A2019E58B00CCFC25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6806B442019E59E00CCFC25 /* Unscrabble2000UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Unscrabble2000UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6806B462019E59E00CCFC25 /* Unscrabble2000UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unscrabble2000UITests.swift; sourceTree = "<group>"; };
+		A6806B482019E59E00CCFC25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6CDCB09200DE67F00E137B2 /* Unscrabble2000.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unscrabble2000.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6CDCB0C200DE67F00E137B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A6CDCB0E200DE67F00E137B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A6CDCB11200DE67F00E137B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A6CDCB14200DE67F00E137B2 /* unscrabble.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = unscrabble.xcdatamodel; sourceTree = "<group>"; };
+		A6CDCB16200DE67F00E137B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A6CDCB19200DE67F00E137B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A6CDCB1B200DE67F00E137B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C46BDE1FC14F563A6E0B8DAD /* Pods-Unscrabble2000.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unscrabble2000.release.xcconfig"; path = "Pods/Target Support Files/Pods-Unscrabble2000/Pods-Unscrabble2000.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A6806B332019E58B00CCFC25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6806B412019E59E00CCFC25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6CDCB06200DE67F00E137B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2868AFEF96FA3322649AD230 /* Pods_Unscrabble2000.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0447B4CFB1015673A3C179CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7CF6A97A9F2048ACD9451968 /* Pods_Unscrabble2000.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6806B372019E58B00CCFC25 /* Unscrabble2000Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A6806B382019E58B00CCFC25 /* Unscrabble2000Tests.swift */,
+				A6806B3A2019E58B00CCFC25 /* Info.plist */,
+			);
+			path = Unscrabble2000Tests;
+			sourceTree = "<group>";
+		};
+		A6806B452019E59E00CCFC25 /* Unscrabble2000UITests */ = {
+			isa = PBXGroup;
+			children = (
+				A6806B462019E59E00CCFC25 /* Unscrabble2000UITests.swift */,
+				A6806B482019E59E00CCFC25 /* Info.plist */,
+			);
+			path = Unscrabble2000UITests;
+			sourceTree = "<group>";
+		};
+		A6CDCB00200DE67F00E137B2 = {
+			isa = PBXGroup;
+			children = (
+				A6CDCB0B200DE67F00E137B2 /* Unscrabble */,
+				A6806B372019E58B00CCFC25 /* Unscrabble2000Tests */,
+				A6806B452019E59E00CCFC25 /* Unscrabble2000UITests */,
+				A6CDCB0A200DE67F00E137B2 /* Products */,
+				E8E7462F8F31A262B799716B /* Pods */,
+				0447B4CFB1015673A3C179CE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A6CDCB0A200DE67F00E137B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A6CDCB09200DE67F00E137B2 /* Unscrabble2000.app */,
+				A6806B362019E58B00CCFC25 /* Unscrabble2000Tests.xctest */,
+				A6806B442019E59E00CCFC25 /* Unscrabble2000UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A6CDCB0B200DE67F00E137B2 /* Unscrabble */ = {
+			isa = PBXGroup;
+			children = (
+				A62134CF200E31A100C31BE5 /* words.txt */,
+				A6CDCB0C200DE67F00E137B2 /* AppDelegate.swift */,
+				A6CDCB0E200DE67F00E137B2 /* ViewController.swift */,
+				A6CDCB10200DE67F00E137B2 /* Main.storyboard */,
+				A6CDCB16200DE67F00E137B2 /* Assets.xcassets */,
+				A6CDCB18200DE67F00E137B2 /* LaunchScreen.storyboard */,
+				A6CDCB1B200DE67F00E137B2 /* Info.plist */,
+				A6CDCB13200DE67F00E137B2 /* unscrabble.xcdatamodeld */,
+			);
+			path = Unscrabble;
+			sourceTree = "<group>";
+		};
+		E8E7462F8F31A262B799716B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A6FA236E43B3311D986BD50 /* Pods-Unscrabble2000.debug.xcconfig */,
+				C46BDE1FC14F563A6E0B8DAD /* Pods-Unscrabble2000.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A6806B352019E58B00CCFC25 /* Unscrabble2000Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6806B3F2019E58B00CCFC25 /* Build configuration list for PBXNativeTarget "Unscrabble2000Tests" */;
+			buildPhases = (
+				A6806B322019E58B00CCFC25 /* Sources */,
+				A6806B332019E58B00CCFC25 /* Frameworks */,
+				A6806B342019E58B00CCFC25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6806B3C2019E58B00CCFC25 /* PBXTargetDependency */,
+			);
+			name = Unscrabble2000Tests;
+			productName = Unscrabble2000Tests;
+			productReference = A6806B362019E58B00CCFC25 /* Unscrabble2000Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A6806B432019E59E00CCFC25 /* Unscrabble2000UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6806B4B2019E59E00CCFC25 /* Build configuration list for PBXNativeTarget "Unscrabble2000UITests" */;
+			buildPhases = (
+				A6806B402019E59E00CCFC25 /* Sources */,
+				A6806B412019E59E00CCFC25 /* Frameworks */,
+				A6806B422019E59E00CCFC25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6806B4A2019E59E00CCFC25 /* PBXTargetDependency */,
+			);
+			name = Unscrabble2000UITests;
+			productName = Unscrabble2000UITests;
+			productReference = A6806B442019E59E00CCFC25 /* Unscrabble2000UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		A6CDCB08200DE67F00E137B2 /* Unscrabble2000 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6CDCB1E200DE67F00E137B2 /* Build configuration list for PBXNativeTarget "Unscrabble2000" */;
+			buildPhases = (
+				C92465CACF9A6D9EC0A6A016 /* [CP] Check Pods Manifest.lock */,
+				A6CDCB05200DE67F00E137B2 /* Sources */,
+				A6CDCB06200DE67F00E137B2 /* Frameworks */,
+				A6CDCB07200DE67F00E137B2 /* Resources */,
+				E2F5617870105CFB6F5B8A47 /* [CP] Embed Pods Frameworks */,
+				57CCF986CA3C2E111E8B46B7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Unscrabble2000;
+			productName = unscrabble;
+			productReference = A6CDCB09200DE67F00E137B2 /* Unscrabble2000.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A6CDCB01200DE67F00E137B2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				TargetAttributes = {
+					A6806B352019E58B00CCFC25 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A6CDCB08200DE67F00E137B2;
+					};
+					A6806B432019E59E00CCFC25 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A6CDCB08200DE67F00E137B2;
+					};
+					A6CDCB08200DE67F00E137B2 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A6CDCB04200DE67F00E137B2 /* Build configuration list for PBXProject "Unscrabble2000" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A6CDCB00200DE67F00E137B2;
+			productRefGroup = A6CDCB0A200DE67F00E137B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A6CDCB08200DE67F00E137B2 /* Unscrabble2000 */,
+				A6806B352019E58B00CCFC25 /* Unscrabble2000Tests */,
+				A6806B432019E59E00CCFC25 /* Unscrabble2000UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A6806B342019E58B00CCFC25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6806B422019E59E00CCFC25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6CDCB07200DE67F00E137B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6CDCB1A200DE67F00E137B2 /* LaunchScreen.storyboard in Resources */,
+				A6CDCB17200DE67F00E137B2 /* Assets.xcassets in Resources */,
+				A6CDCB12200DE67F00E137B2 /* Main.storyboard in Resources */,
+				A62134D0200E31A100C31BE5 /* words.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		57CCF986CA3C2E111E8B46B7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Unscrabble2000/Pods-Unscrabble2000-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C92465CACF9A6D9EC0A6A016 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E2F5617870105CFB6F5B8A47 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Unscrabble2000/Pods-Unscrabble2000-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A6806B322019E58B00CCFC25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6806B392019E58B00CCFC25 /* Unscrabble2000Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6806B402019E59E00CCFC25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6806B472019E59E00CCFC25 /* Unscrabble2000UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6CDCB05200DE67F00E137B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6CDCB0F200DE67F00E137B2 /* ViewController.swift in Sources */,
+				A6CDCB0D200DE67F00E137B2 /* AppDelegate.swift in Sources */,
+				A6CDCB15200DE67F00E137B2 /* unscrabble.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A6806B3C2019E58B00CCFC25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A6CDCB08200DE67F00E137B2 /* Unscrabble2000 */;
+			targetProxy = A6806B3B2019E58B00CCFC25 /* PBXContainerItemProxy */;
+		};
+		A6806B4A2019E59E00CCFC25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A6CDCB08200DE67F00E137B2 /* Unscrabble2000 */;
+			targetProxy = A6806B492019E59E00CCFC25 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A6CDCB10200DE67F00E137B2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6CDCB11200DE67F00E137B2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A6CDCB18200DE67F00E137B2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6CDCB19200DE67F00E137B2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A6806B3D2019E58B00CCFC25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y849S4R6L9;
+				INFOPLIST_FILE = Unscrabble2000Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jukkamiettinen.Unscrabble2000Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unscrabble2000.app/Unscrabble2000";
+			};
+			name = Debug;
+		};
+		A6806B3E2019E58B00CCFC25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y849S4R6L9;
+				INFOPLIST_FILE = Unscrabble2000Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jukkamiettinen.Unscrabble2000Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unscrabble2000.app/Unscrabble2000";
+			};
+			name = Release;
+		};
+		A6806B4C2019E59E00CCFC25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y849S4R6L9;
+				INFOPLIST_FILE = Unscrabble2000UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jukkamiettinen.Unscrabble2000UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Unscrabble2000;
+			};
+			name = Debug;
+		};
+		A6806B4D2019E59E00CCFC25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y849S4R6L9;
+				INFOPLIST_FILE = Unscrabble2000UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jukkamiettinen.Unscrabble2000UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Unscrabble2000;
+			};
+			name = Release;
+		};
+		A6CDCB1C200DE67F00E137B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A6CDCB1D200DE67F00E137B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A6CDCB1F200DE67F00E137B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A6FA236E43B3311D986BD50 /* Pods-Unscrabble2000.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y849S4R6L9;
+				INFOPLIST_FILE = unscrabble/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jukkamiettinen.Unscrabble;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A6CDCB20200DE67F00E137B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C46BDE1FC14F563A6E0B8DAD /* Pods-Unscrabble2000.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y849S4R6L9;
+				INFOPLIST_FILE = unscrabble/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jukkamiettinen.Unscrabble;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A6806B3F2019E58B00CCFC25 /* Build configuration list for PBXNativeTarget "Unscrabble2000Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6806B3D2019E58B00CCFC25 /* Debug */,
+				A6806B3E2019E58B00CCFC25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6806B4B2019E59E00CCFC25 /* Build configuration list for PBXNativeTarget "Unscrabble2000UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6806B4C2019E59E00CCFC25 /* Debug */,
+				A6806B4D2019E59E00CCFC25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6CDCB04200DE67F00E137B2 /* Build configuration list for PBXProject "Unscrabble2000" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6CDCB1C200DE67F00E137B2 /* Debug */,
+				A6CDCB1D200DE67F00E137B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6CDCB1E200DE67F00E137B2 /* Build configuration list for PBXNativeTarget "Unscrabble2000" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6CDCB1F200DE67F00E137B2 /* Debug */,
+				A6CDCB20200DE67F00E137B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A6CDCB13200DE67F00E137B2 /* unscrabble.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A6CDCB14200DE67F00E137B2 /* unscrabble.xcdatamodel */,
+			);
+			currentVersion = A6CDCB14200DE67F00E137B2 /* unscrabble.xcdatamodel */;
+			path = unscrabble.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A6CDCB01200DE67F00E137B2 /* Project object */;
+}

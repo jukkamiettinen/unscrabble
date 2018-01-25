@@ -1,0 +1,6 @@
+framework module Pods_Unscrabble2000 {
+  umbrella header "Pods-Unscrabble2000-umbrella.h"
+
+  export *
+  module * { export * }
+}
