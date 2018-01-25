@@ -10,6 +10,7 @@
 # update_fastlane
 
 ENV["FASTLANE_ITC_TEAM_ID"] = "Y849S4R6L9"
+ENV["FASTLANE_APPLE_ID"] = "jukka.p.miettinen@icloud.com"
 default_platform(:ios)
 
 platform :ios do
