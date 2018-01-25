@@ -42,7 +42,6 @@ platform :ios do
             workspace: "Unscrabble2000.xcworkspace",
             include_bitcode: true)
     upload_to_testflight
-    pilot(skip_waiting_for_build_processing: true)
     slack(message: "Successfully distributed a new beta build")
   end
 end
