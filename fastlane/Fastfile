@@ -7,8 +7,9 @@
 #
 
 # Uncomment the line if you want fastlane to automatically update itself
-update_fastlane
+# update_fastlane
 
+ENV["FASTLANE_ITC_TEAM_ID"] = "Y849S4R6L9"
 default_platform(:ios)
 
 platform :ios do
