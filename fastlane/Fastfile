@@ -42,6 +42,6 @@ platform :ios do
             workspace: "Unscrabble2000.xcworkspace",
             include_bitcode: true)
     upload_to_testflight
-    slack(message: "Successfully distributed a new beta build")
+    # slack(message: "Successfully distributed a new beta build")
   end
 end
