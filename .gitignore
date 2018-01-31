@@ -65,3 +65,10 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+fastlane/.DS_Store
+screenshots/
+
+# Other
+*.DS_Store
+*.mobileprovision
+*.cer
