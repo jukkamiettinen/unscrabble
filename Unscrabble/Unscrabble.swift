@@ -8,41 +8,47 @@
 import Foundation
 
 public class Unscrabble {
-    struct Alphabet {
+    struct Word {
+        var alphabets: [Alphabet]
         var string: String
         var points: Int
     }
 
-    let alphabets = [
-        Alphabet(string: "A", points: 1),
-        Alphabet(string: "I", points: 1),
-        Alphabet(string: "N", points: 1),
-        Alphabet(string: "S", points: 1),
-        Alphabet(string: "T", points: 1),
-        Alphabet(string: "E", points: 1),
-        Alphabet(string: "K", points: 2),
-        Alphabet(string: "L", points: 2),
-        Alphabet(string: "O", points: 2),
-        Alphabet(string: "Ä", points: 2),
-        Alphabet(string: "U", points: 3),
-        Alphabet(string: "M", points: 3),
-        Alphabet(string: "H", points: 4),
-        Alphabet(string: "J", points: 4),
-        Alphabet(string: "P", points: 4),
-        Alphabet(string: "R", points: 4),
-        Alphabet(string: "U", points: 4),
-        Alphabet(string: "Y", points: 4),
-        Alphabet(string: "V", points: 4),
-        Alphabet(string: "W", points: 4),
-        Alphabet(string: "D", points: 7),
-        Alphabet(string: "Ö", points: 7),
-        Alphabet(string: "B", points: 8),
-        Alphabet(string: "F", points: 8),
-        Alphabet(string: "G", points: 8),
-        Alphabet(string: "X", points: 8),
-        Alphabet(string: "C", points: 10),
-        Alphabet(string: "Z", points: 10),
-        Alphabet(string: "Q", points: 10),
+    struct Alphabet {
+        var character: Character
+        var points: Int
+    }
+
+    static let alphabets = [
+        Alphabet(character: "A", points: 1),
+        Alphabet(character: "I", points: 1),
+        Alphabet(character: "N", points: 1),
+        Alphabet(character: "S", points: 1),
+        Alphabet(character: "T", points: 1),
+        Alphabet(character: "E", points: 1),
+        Alphabet(character: "K", points: 2),
+        Alphabet(character: "L", points: 2),
+        Alphabet(character: "O", points: 2),
+        Alphabet(character: "Ä", points: 2),
+        Alphabet(character: "U", points: 3),
+        Alphabet(character: "M", points: 3),
+        Alphabet(character: "H", points: 4),
+        Alphabet(character: "J", points: 4),
+        Alphabet(character: "P", points: 4),
+        Alphabet(character: "R", points: 4),
+        Alphabet(character: "U", points: 4),
+        Alphabet(character: "Y", points: 4),
+        Alphabet(character: "V", points: 4),
+        Alphabet(character: "W", points: 4),
+        Alphabet(character: "D", points: 7),
+        Alphabet(character: "Ö", points: 7),
+        Alphabet(character: "B", points: 8),
+        Alphabet(character: "F", points: 8),
+        Alphabet(character: "G", points: 8),
+        Alphabet(character: "X", points: 8),
+        Alphabet(character: "C", points: 10),
+        Alphabet(character: "Z", points: 10),
+        Alphabet(character: "Q", points: 10),
     ]
 
     /**
@@ -118,5 +124,25 @@ public class Unscrabble {
                 matchingWords.append(word)
             }
         }
+
+        // Sort words by points
+        matchingWords = matchingWords.sorted(by: sorterForPoints)
+    }
+
+    static func sorterForPoints(this: String, that: String) -> Bool {
+        return points(word: this) > points(word: that)
+    }
+
+    static private func points(word: String) -> Int {
+        var sum = 0
+        for character in word.unicodeScalars {
+            if let points = alphabets.filter({ (alphabet) -> Bool in
+                String(alphabet.character).lowercased() == String(character).lowercased()
+            }).first?.points {
+                sum += points
+            }
+        }
+
+        return sum
     }
 }

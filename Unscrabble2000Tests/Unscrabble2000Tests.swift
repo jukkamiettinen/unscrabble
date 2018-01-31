@@ -25,7 +25,7 @@ class Unscrabble2000Tests: XCTestCase {
     
     func testWordInputWith7letters() {
         Unscrabble.findWords(from: dictionary, with: "abcdefg", matchingWords: &matchingWords, notAvailableCharacters: "", maxWordCount: 5)
-        XCTAssertEqual(matchingWords, ["ad", "cafe"])
+        XCTAssertEqual(matchingWords, ["cafe", "ad"])
     }
 
     func testWordInputMustContainCharacterG() {
