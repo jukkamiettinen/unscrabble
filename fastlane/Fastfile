@@ -79,7 +79,9 @@ desc "Submit a new Beta Build to Apple TestFlight"
     #---------------------------
     # Build
     #---------------------------
-    gym(clean: true, output_directory: "/tmp", scheme: "Unscrabble2000", codesigning_identity: "iPhone Distribution: Jukka Miettinen")
+    build_app(scheme: "Unscrabble2000",
+            workspace: "Unscrabble2000.xcworkspace",
+            include_bitcode: true)
 
     #---------------------------
     # Upload to TF
