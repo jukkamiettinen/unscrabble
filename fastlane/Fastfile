@@ -64,7 +64,7 @@ desc "Submit a new Beta Build to Apple TestFlight"
     # ---------------------------
     # We better be on release branch
     # ---------------------------
-    ensure_git_branch(branch: 'release')
+    ensure_git_branch(branch: 'master')
 
     # ---------------------------
     # Increment our version numbers. This needs to be done for all of our targets (app, notification center, watch etc.). Here the build and version number will match.
@@ -97,7 +97,7 @@ add_git_tag(tag: git_tag)
     #---------------------------
     # Push to GitHub
     #---------------------------
-    push_to_git_remote(remote: 'origin', local_branch: 'release', remote_branch: 'release', force: false)
+    push_to_git_remote(remote: 'origin', local_branch: 'master', remote_branch: 'master', force: false)
 
     #---------------------------
     # Clean up our files
