@@ -53,4 +53,57 @@ platform :ios do
     upload_to_testflight
     # slack(message: "Successfully distributed a new beta build")
   end
+
+desc "Submit a new Beta Build to Apple TestFlight"
+  lane :testflight do
+    # ---------------------------
+    # Make sure we don't have any unchecked in files hanging out
+    # ---------------------------
+    ensure_git_status_clean
+
+    # ---------------------------
+    # We better be on release branch
+    # ---------------------------
+    ensure_git_branch(branch: 'release')
+
+    # ---------------------------
+    # Increment our version numbers. This needs to be done for all of our targets (app, notification center, watch etc.). Here the build and version number will match.
+    # ---------------------------
+    increment_version_number
+    version = get_version_number()
+    increment_build_number(build_number: version)
+
+    #---------------------------
+    # Commit version bump
+    #---------------------------
+    commit_version_bump(message: 'Bump version', force: true)
+
+    #---------------------------
+    # Build
+    #---------------------------
+    gym(clean: true, output_directory: "/tmp", scheme: "App-Release", codesigning_identity: "iPhone Distribution: Jukka Miettinen")
+
+    #---------------------------
+    # Upload to TF
+    #---------------------------
+    pilot(skip_submission: true, username: "jukka.p.miettinen@icloud.com")
+
+    #---------------------------
+    # Tag the submit
+    #---------------------------
+    git_tag = "Version_" + version
+add_git_tag(tag: git_tag)
+
+    #---------------------------
+    # Push to GitHub
+    #---------------------------
+    push_to_git_remote(remote: 'origin', local_branch: 'release', remote_branch: 'release', force: false)
+
+    #---------------------------
+    # Clean up our files
+    #---------------------------
+    clean_build_artifacts
+
+    # slack(message: "Successfully distributed a new beta build")
+  end
 end

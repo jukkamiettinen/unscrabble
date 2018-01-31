@@ -26,11 +26,11 @@ fastlane ios test
 fastlane ios screenshots
 ```
 
-### ios beta
+### ios testflight
 ```
-fastlane ios beta
+fastlane ios testflight
 ```
-Description of what the lane does
+Submit a new Beta Build to Apple TestFlight
 
 ----
 
