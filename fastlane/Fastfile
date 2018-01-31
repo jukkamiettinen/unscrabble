@@ -79,7 +79,7 @@ desc "Submit a new Beta Build to Apple TestFlight"
     #---------------------------
     # Build
     #---------------------------
-    gym(clean: true, output_directory: "/tmp", scheme: "App-Release", codesigning_identity: "iPhone Distribution: Jukka Miettinen")
+    gym(clean: true, output_directory: "/tmp", scheme: "Unscrabble2000", codesigning_identity: "iPhone Distribution: Jukka Miettinen")
 
     #---------------------------
     # Upload to TF
