@@ -42,20 +42,29 @@ extension String {
     }
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+
+    let searchController = UISearchController(searchResultsController: nil)
     var dictionary: [String] = []
+    var matchingWords: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // UI test helpers
+        view.accessibilityIdentifier = "mainView"
+        tableView.accessibilityIdentifier = "table--possibleWordsTableView"
+
+        tableView.delegate = self
+        tableView.dataSource = self
+        searchBar.delegate = self
 
         if let path = Bundle.main.path(forResource: "words", ofType: "txt") {
             do {
                 let data = try String(contentsOfFile: path, encoding: .utf8)
                 self.dictionary = data.components(separatedBy: .newlines)
-                findPossibleWords(
-                    availableCharacters: "G****",
-                    notAvailableCharacters: "",
-                    maxWordCount: 5)
             } catch {
                 print(error)
             }
@@ -66,128 +75,33 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    /**
-     Returns all possible permuations of passed in string
-     - parameter str: String to calculate permutation for
-     - parameter left: Starting index
-     - parameter right: End index
-     - parameter output: All possible permuations of passed in string
-     */
-    private func permute(str: String, left: Int, right: Int, output: inout [String]) {
-        var input = str
-        if (left == right) {
-            output.append(input)
-        }
-        else {
-            for index in left...right {
-                var characters = Array(input)
-                characters.swapAt(index, left)
-                input = String(characters)
+    // MARK: - Table View
 
-                permute(str: input, left: left + 1, right: right, output: &output);
-
-                characters.swapAt(index, left)
-                input = String(characters)
-                if !output.contains(input) {
-                    output.append(input)
-                }
-            }
-        }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return matchingWords.count
     }
 
-    /**
-     Returns all words that have contain all given characters
-     - parameter availableCharacters: Available characters
-     - parameter matchingWords: Words that match all given criteria
-     - parameter notAvailableCharacters: Characters that word should not contain
-     - parameter maxWordCount: max word length
-     */
-    func findWords(using availableCharacters: String, matchingWords: inout [String], notAvailableCharacters: String, maxWordCount: Int) {
-        var availableCharacters = availableCharacters
-        var mustContain = ""
-        let upperCase = CharacterSet.uppercaseLetters
-
-        // Figure out what characters word must contain
-        for character in availableCharacters.unicodeScalars {
-            if upperCase.contains(character) {
-                mustContain += character.escaped(asASCII: true).lowercased()
-            }
-        }
-        availableCharacters = availableCharacters.lowercased()
-
-        for word in dictionary {
-            var matching = true
-
-            let word = word.trimmingCharacters(in: .whitespacesAndNewlines)
-
-            guard word.count >= minWordCount, word.count <= maxWordCount, availableCharacters.count >= word.count else { continue }
-
-            for character in mustContain {
-                if !word.contains(character) {
-                    matching = false
-                    break
-                }
-            }
-
-            guard matching else { continue }
-
-            // Make sure word contains _all_ available characters
-            var _availableCharacters = availableCharacters
-            for index in word.indices {
-                if _availableCharacters.contains(word[index]) {
-                    // Remove used character, not available anymore
-                    _availableCharacters.remove(at: _availableCharacters.index(of: word[index])!)
-                } else if _availableCharacters.contains("*") {
-                    // Remove magic character, not available anymore
-                    _availableCharacters.remove(at: _availableCharacters.index(of: "*")!)
-                } else {
-                    matching = false
-                    // At least one character did not match, break the for loop
-                    // and move on to next word
-                    break
-                }
-            }
-
-            guard matching else { continue }
-
-            // Make sure word does not contain characters that are not available
-            for character in notAvailableCharacters {
-                if word.contains(character) {
-                    matching = false
-                    // At least one character did not match, break the for loop
-                    // and move on to next wor
-                    break
-                }
-            }
-
-            guard matching else { continue }
-
-            // Perfect match found
-            if !matchingWords.contains(word) {
-                matchingWords.append(word)
-            }
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let matchingWord: String
+        matchingWord = matchingWords[indexPath.row]
+        cell.textLabel!.text = matchingWord
+        return cell
     }
 
-    /**
-     Returns all words that have contain all given characters
-     - parameter availableCharacters: Available characters
-     - parameter notAvailableCharacters: Characters that word should not contain
-     - parameter maxWordCount: max word length
-     */
-    func findPossibleWords(availableCharacters: String, notAvailableCharacters: String, maxWordCount: Int) {
-        print("Searching")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchBar.resignFirstResponder()
+    }
 
-        var matchingWords: [String] = []
-        findWords(using: availableCharacters, matchingWords: &matchingWords, notAvailableCharacters: notAvailableCharacters, maxWordCount: maxWordCount)
+    // MARK: - Private instance methods
 
-        if matchingWords.count == 0 {
-            print("\nNO MATCHING WORDS FOUND", terminator:"")
-        }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let text = searchBar.text else { return }
 
-        for word in matchingWords {
-            print("\nMatching word: \(word)", terminator:"")
-        }
+        matchingWords = []
+        Unscrabble.findWords(from: dictionary, with: text, matchingWords: &matchingWords, notAvailableCharacters: "", maxWordCount: text.count)
+
+        tableView.reloadData()
     }
 }
 

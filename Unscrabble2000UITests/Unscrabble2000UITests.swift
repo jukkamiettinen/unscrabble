@@ -6,9 +6,15 @@
 //
 
 import XCTest
+@testable import Unscrabble2000
+
+extension XCUIApplication {
+    var isDisplayingMainView: Bool {
+        return otherElements["mainView"].exists
+    }
+}
 
 class Unscrabble2000UITests: XCTestCase {
-        
     override func setUp() {
         super.setUp()
         
@@ -17,7 +23,9 @@ class Unscrabble2000UITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        let app = XCUIApplication()
+        setupSnapshot(app)
+        app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
@@ -26,10 +34,57 @@ class Unscrabble2000UITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    func testMainViewDisplayed() {
+        let app = XCUIApplication()
+        XCTAssertTrue(app.isDisplayingMainView)
     }
-    
+
+    func testWordInputWith7letters() {
+        testInputAgainstVisibleCells(
+            searchText: "abcdefg",
+            foundWords: ["ad", "cafe"])
+    }
+
+    func testWordInputWith4letters() {
+        testInputAgainstVisibleCells(
+            searchText: "lego",
+            foundWords: ["ego", "geo"])
+    }
+
+    func testWordInputWith5letters() {
+        snapshot("01WithoutInput")
+        testInputAgainstVisibleCells(
+            searchText: "testi",
+            foundWords: ["esi", "ies", "itse", "sei", "setti", "testi", "tie", "ties", "tse"])
+        snapshot("02WithInput")
+    }
+
+    private func testInputAgainstVisibleCells(searchText: String, foundWords: [String]) {
+        let app = XCUIApplication()
+        // Assert that we are displaying the tableview
+        let possibleWordsTableView = app.tables["table--possibleWordsTableView"]
+        XCTAssertTrue(possibleWordsTableView.exists, "The possible words table view exists")
+
+        // Find search field within table view and tap it
+        let searchField = possibleWordsTableView.children(matching: .searchField).element
+        searchField.tap()
+
+        // Type in query
+        searchField.typeText(searchText)
+
+        // Get an array of cells
+        let tableCells = possibleWordsTableView.cells
+
+        XCTAssertEqual(tableCells.count, foundWords.count)
+
+        if tableCells.count > 0 {
+            for i in 0...tableCells.count - 1 {
+                let cell = tableCells.staticTexts[foundWords[i]]
+                XCTAssert(cell.exists)
+            }
+        } else {
+            XCTAssert(false, "Was not able to find any table cells")
+        }
+    }
 }

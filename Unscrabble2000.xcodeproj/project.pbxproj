@@ -11,6 +11,9 @@
 		A62134D0200E31A100C31BE5 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = A62134CF200E31A100C31BE5 /* words.txt */; };
 		A6806B392019E58B00CCFC25 /* Unscrabble2000Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6806B382019E58B00CCFC25 /* Unscrabble2000Tests.swift */; };
 		A6806B472019E59E00CCFC25 /* Unscrabble2000UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6806B462019E59E00CCFC25 /* Unscrabble2000UITests.swift */; };
+		A6806B4F201B3AFF00CCFC25 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6806B4E201B3AFF00CCFC25 /* Utils.swift */; };
+		A6806B51201B3B4400CCFC25 /* Unscrabble.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6806B50201B3B4400CCFC25 /* Unscrabble.swift */; };
+		A68BE0A320208A370095E95B /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68BE0A120208A150095E95B /* SnapshotHelper.swift */; };
 		A6CDCB0D200DE67F00E137B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CDCB0C200DE67F00E137B2 /* AppDelegate.swift */; };
 		A6CDCB0F200DE67F00E137B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CDCB0E200DE67F00E137B2 /* ViewController.swift */; };
 		A6CDCB12200DE67F00E137B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CDCB10200DE67F00E137B2 /* Main.storyboard */; };
@@ -46,6 +49,9 @@
 		A6806B442019E59E00CCFC25 /* Unscrabble2000UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Unscrabble2000UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6806B462019E59E00CCFC25 /* Unscrabble2000UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unscrabble2000UITests.swift; sourceTree = "<group>"; };
 		A6806B482019E59E00CCFC25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6806B4E201B3AFF00CCFC25 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A6806B50201B3B4400CCFC25 /* Unscrabble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unscrabble.swift; sourceTree = "<group>"; };
+		A68BE0A120208A150095E95B /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		A6CDCB09200DE67F00E137B2 /* Unscrabble2000.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unscrabble2000.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6CDCB0C200DE67F00E137B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6CDCB0E200DE67F00E137B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				A6806B462019E59E00CCFC25 /* Unscrabble2000UITests.swift */,
+				A68BE0A120208A150095E95B /* SnapshotHelper.swift */,
 				A6806B482019E59E00CCFC25 /* Info.plist */,
 			);
 			path = Unscrabble2000UITests;
@@ -142,6 +149,8 @@
 				A6CDCB18200DE67F00E137B2 /* LaunchScreen.storyboard */,
 				A6CDCB1B200DE67F00E137B2 /* Info.plist */,
 				A6CDCB13200DE67F00E137B2 /* unscrabble.xcdatamodeld */,
+				A6806B4E201B3AFF00CCFC25 /* Utils.swift */,
+				A6806B50201B3B4400CCFC25 /* Unscrabble.swift */,
 			);
 			path = Unscrabble;
 			sourceTree = "<group>";
@@ -349,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6806B472019E59E00CCFC25 /* Unscrabble2000UITests.swift in Sources */,
+				A68BE0A320208A370095E95B /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,9 +366,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6806B51201B3B4400CCFC25 /* Unscrabble.swift in Sources */,
 				A6CDCB0F200DE67F00E137B2 /* ViewController.swift in Sources */,
 				A6CDCB0D200DE67F00E137B2 /* AppDelegate.swift in Sources */,
 				A6CDCB15200DE67F00E137B2 /* unscrabble.xcdatamodeld in Sources */,
+				A6806B4F201B3AFF00CCFC25 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

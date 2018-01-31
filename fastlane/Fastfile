@@ -2,7 +2,6 @@
 # You can find the documentation at https://docs.fastlane.tools
 #
 # For a list of all available actions, check out
-#
 #     https://docs.fastlane.tools/actions
 #
 
@@ -15,6 +14,16 @@ ENV["FASTLANE_USERNAME"] = "jukka.p.miettinen@icloud.com"
 default_platform(:ios)
 
 platform :ios do
+  lane :test do
+    scan(scheme: "Unscrabble2000")
+  end
+
+  lane :screenshots do
+    snapshot 
+    frameit(white: true)
+    deliver
+  end
+
   desc "Description of what the lane does"
   lane :beta do
     # Ensure that your git status is not dirty
