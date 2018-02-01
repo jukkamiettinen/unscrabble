@@ -6,7 +6,7 @@
 #
 
 # Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+update_fastlane
 
 ENV["FASTLANE_ITC_TEAM_ID"] = "Y849S4R6L9"
 ENV["FASTLANE_APPLE_ID"] = "jukka.p.miettinen@icloud.com"
@@ -19,9 +19,15 @@ platform :ios do
   end
 
   lane :screenshots do
-    snapshot 
+    # Creates snapshots for all devices defined by Snapfile
+    snapshot
+    # Frame snapshots with white frame
     frameit(white: true)
-    deliver
+    # Verifying the upload via the HTML file can be disabled by --force
+    deliver(
+      submit_for_review: false,
+      force: true
+    )
   end
 
   desc "Description of what the lane does"
