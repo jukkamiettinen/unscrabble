@@ -98,7 +98,7 @@ desc "Submit a new Beta Build to Apple TestFlight"
     #---------------------------
     # Tag the submit
     #---------------------------
-    add_git_tag(prefix: get_version_number + "/", build_number: get_build_number)
+    # add_git_tag(prefix: get_version_number + "/", build_number: get_build_number)
 
     #---------------------------
     # Push to GitHub
