@@ -24,9 +24,10 @@ platform :ios do
     # Frame snapshots with white frame
     frameit(white: true)
     # Verifying the upload via the HTML file can be disabled by --force
+    # Also skipping binary upload, only uploading new screenshots.
     deliver(
-      submit_for_review: false,
-      force: true
+      force: true,
+      skip_binary_upload: true
     )
   end
 
