@@ -50,6 +50,9 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
     var dictionary: [String] = []
     var matchingWords: [String] = []
 
+    /**
+     Triggered when view is loaded.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,7 +62,9 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
 
         tableView.delegate = self
         tableView.dataSource = self
+
         searchBar.delegate = self
+        searchBar.autocapitalizationType = .none
 
         if let path = Bundle.main.path(forResource: "words", ofType: "txt") {
             do {
@@ -77,10 +82,16 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
 
     // MARK: - Table View
 
+    /**
+     Triggered when table view is requested to return number of rows in section.
+     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return matchingWords.count
     }
 
+    /**
+     Triggered when table cell is requested to draw itself.
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let matchingWord: String
@@ -89,12 +100,19 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         return cell
     }
 
+    /**
+     Triggered when table cell is selected. Search bar's focus is released.
+     */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         searchBar.resignFirstResponder()
     }
 
-    // MARK: - Private instance methods
+    // MARK: - Search Bar
 
+    /**
+     Triggered when search text changes. On every change we try find words
+     from dictionary that match search text. Search bar's focus is released.
+     */
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let text = searchBar.text else { return }
 
@@ -102,6 +120,13 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         Unscrabble.findWords(from: dictionary, with: text, matchingWords: &matchingWords, notAvailableCharacters: "", maxWordCount: text.count)
 
         tableView.reloadData()
+    }
+
+    /**
+     Triggered when search button is clicked. Search bar's focus is released.
+    */
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
 

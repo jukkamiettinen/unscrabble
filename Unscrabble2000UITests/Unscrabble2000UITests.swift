@@ -40,18 +40,27 @@ class Unscrabble2000UITests: XCTestCase {
         XCTAssertTrue(app.isDisplayingMainView)
     }
 
+    /**
+     Tests word input with 7 letters.
+     */
     func testWordInputWith7letters() {
         testInputAgainstVisibleCells(
             searchText: "abcdefg",
             foundWords: ["ad", "cafe"])
     }
 
+    /**
+     Tests word input with 4 letters.
+     */
     func testWordInputWith4letters() {
         testInputAgainstVisibleCells(
             searchText: "lego",
             foundWords: ["ego", "geo"])
     }
 
+    /**
+     Tests word input with 5 letters.
+    */
     func testWordInputWith5letters() {
         snapshot("01WithoutInput")
         testInputAgainstVisibleCells(
@@ -60,6 +69,11 @@ class Unscrabble2000UITests: XCTestCase {
         snapshot("02WithInput")
     }
 
+    /**
+     Tests input against visible cells and takes into account the order of cells.
+     - Parameter searchText: Search text
+     - Parameter foundWords: Found words from dictionary based on passed in search text
+     */
     private func testInputAgainstVisibleCells(searchText: String, foundWords: [String]) {
         let app = XCUIApplication()
         // Assert that we are displaying the tableview
