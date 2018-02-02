@@ -1,0 +1,3 @@
+Versio 1.0
+- Bugikorjauksia
+- Uusi käyttöliittymä
