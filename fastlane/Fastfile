@@ -20,7 +20,7 @@ platform :ios do
 
   lane :screenshots do
     snapshot 
-    frameit(white: true)
+    frameit
     deliver(
       force: true,
       ignore_language_directory_validation: true,
