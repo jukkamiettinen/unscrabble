@@ -98,12 +98,12 @@ desc "Submit a new Beta Build to Apple TestFlight"
     #---------------------------
     # Tag the submit
     #---------------------------
-    # add_git_tag(prefix: get_version_number + "/", build_number: get_build_number)
+    add_git_tag(prefix: get_version_number + "/", build_number: get_build_number)
 
     #---------------------------
     # Push to GitHub
     #---------------------------
-    push_to_git_remote(remote: 'origin', local_branch: 'master', remote_branch: 'master', force: false)
+    push_to_git_remote(remote: 'origin', local_branch: 'master', remote_branch: 'master', force: true)
 
     #---------------------------
     # Clean up our files
