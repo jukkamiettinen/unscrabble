@@ -18,10 +18,9 @@ class Unscrabble2000UITests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
+
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         let app = XCUIApplication()
         setupSnapshot(app)
@@ -43,7 +42,7 @@ class Unscrabble2000UITests: XCTestCase {
     func testWordInputWith7letters() {
         testInputAgainstVisibleCells(
             searchText: "abcdefg",
-            foundWords: ["ad", "cafe"])
+            foundWords: ["cafe", "ad"])
     }
 
     func testWordInputWith4letters() {
@@ -56,7 +55,7 @@ class Unscrabble2000UITests: XCTestCase {
         snapshot("01WithoutInput")
         testInputAgainstVisibleCells(
             searchText: "testi",
-            foundWords: ["esi", "ies", "itse", "sei", "setti", "testi", "tie", "ties", "tse"])
+            foundWords: ["setti", "testi", "itse", "ties", "esi", "ies", "sei", "tie", "tse"])
         snapshot("02WithInput")
     }
 
@@ -80,8 +79,10 @@ class Unscrabble2000UITests: XCTestCase {
 
         if tableCells.count > 0 {
             for i in 0...tableCells.count - 1 {
-                let cell = tableCells.staticTexts[foundWords[i]]
-                XCTAssert(cell.exists)
+                // Grab the cell bound by index and make sure static text matches
+                // with found word bound by same index
+                let tableCell = tableCells.element(boundBy: i).staticTexts[foundWords[i]]
+                XCTAssert(tableCell.exists)
             }
         } else {
             XCTAssert(false, "Was not able to find any table cells")
