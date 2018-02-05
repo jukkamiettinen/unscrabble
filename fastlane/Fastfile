@@ -28,38 +28,38 @@ platform :ios do
     )
   end
 
-  desc "Description of what the lane does"
-  lane :beta do
-    # Ensure that your git status is not dirty
-    ensure_git_status_clean
+  #desc "Description of what the lane does"
+  #lane :beta do
+  #  # Ensure that your git status is not dirty
+  #  ensure_git_status_clean
 
     # Increment the build number (not the version number)
     # Providing the xcodeproj is optional
-    increment_build_number(xcodeproj: "Unscrabble2000.xcodeproj")
+  #  increment_build_number(xcodeproj: "Unscrabble2000.xcodeproj")
 
     # Commit the version bump
-    commit_version_bump(xcodeproj: "Unscrabble2000.xcodeproj")
+  #  commit_version_bump(xcodeproj: "Unscrabble2000.xcodeproj")
 
     # Add a git tag for this build. This will automatically
     # use an appropriate git tag name
-    add_git_tag
+  #  add_git_tag
 
     # Push the new commit and tag back to your git remote
-    push_to_git_remote
+  #  push_to_git_remote
 
     # sync_code_signing(type: "appstore")
 
-    get_certificates           # invokes cert
-    get_provisioning_profile   # invokes sigh
-    build_app(scheme: "Unscrabble2000",
-            workspace: "Unscrabble2000.xcworkspace",
-            include_bitcode: true)
-    upload_to_testflight
+  #  get_certificates           # invokes cert
+  #  get_provisioning_profile   # invokes sigh
+  #  build_app(scheme: "Unscrabble2000",
+  #          workspace: "Unscrabble2000.xcworkspace",
+  #          include_bitcode: true)
+  #  upload_to_testflight
     # slack(message: "Successfully distributed a new beta build")
-  end
+  #end
 
   desc "Submit a new Beta Build to Apple TestFlight"
-  lane :testflight do
+  lane :beta do
     # ---------------------------
     # Make sure we don't have any unchecked in files hanging out
     # ---------------------------
