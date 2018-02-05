@@ -20,8 +20,12 @@ platform :ios do
 
   lane :screenshots do
     snapshot 
-    frameit(white: true)
-    deliver
+    frame_screenshots(silver: true)
+    deliver(
+      force: true,
+      ignore_language_directory_validation: true,
+      skip_binary_upload: true
+    )
   end
 
   desc "Description of what the lane does"
@@ -51,6 +55,58 @@ platform :ios do
             workspace: "Unscrabble2000.xcworkspace",
             include_bitcode: true)
     upload_to_testflight
+    # slack(message: "Successfully distributed a new beta build")
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  lane :testflight do
+    # ---------------------------
+    # Make sure we don't have any unchecked in files hanging out
+    # ---------------------------
+    ensure_git_status_clean
+
+    # ---------------------------
+    # We better be on release branch
+    # ---------------------------
+    ensure_git_branch(branch: 'master')
+
+    # ---------------------------
+    # Increment our version numbers. This needs to be done for all of our targets (app, notification center, watch etc.). Here the build and version number will match.
+    # ---------------------------
+    increment_build_number(xcodeproj: "Unscrabble2000.xcodeproj")
+
+    #---------------------------
+    # Commit version bump
+    #---------------------------
+    commit_version_bump(xcodeproj: "Unscrabble2000.xcodeproj")
+
+    #---------------------------
+    # Build
+    #---------------------------
+    build_app(scheme: "Unscrabble2000",
+            workspace: "Unscrabble2000.xcworkspace",
+            include_bitcode: true)
+
+    #---------------------------
+    # Upload to TF
+    #---------------------------
+    pilot(skip_submission: true, username: "jukka.p.miettinen@icloud.com")
+
+    #---------------------------
+    # Tag the submit
+    #---------------------------
+    add_git_tag
+
+    #---------------------------
+    # Push to GitHub
+    #---------------------------
+    push_to_git_remote(remote: 'origin', local_branch: 'master', remote_branch: 'master', force: true)
+
+    #---------------------------
+    # Clean up our files
+    #---------------------------
+    clean_build_artifacts
+
     # slack(message: "Successfully distributed a new beta build")
   end
 end
