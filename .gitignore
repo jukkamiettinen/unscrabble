@@ -66,9 +66,11 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/.DS_Store
+fastlane/*.bak
 screenshots/
 
 # Other
 *.DS_Store
 *.mobileprovision
 *.cer
+*.bak
