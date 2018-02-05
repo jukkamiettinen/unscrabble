@@ -4108,7 +4108,8 @@ falskata
 falski	
 familiaalinen	
 famotidiini	
-famsikloviiri	
+famsikloviiri
+fan
 fanaatikko	
 fanaattinen	
 fanatismi	
@@ -17085,7 +17086,8 @@ myötäillä
 myötäinen	
 myötäjäinen	
 myötäle	
-myötäänsä	
+myötäänsä
+mä
 mädännäinen	
 mädäntyä	
 mädättämö	
@@ -26446,7 +26448,8 @@ syöttää
 syöttö	
 syöveri	
 syövyttää	
-syövytys	
+syövytys
+sä
 säde	
 sädehtiä	
 sädetin	
@@ -27484,7 +27487,8 @@ tiamiini
 tiara	
 tiatsidi	
 tiatsididiureetti	
-tiboloni	
+tiboloni
+tic
 tie	
 tie	
 tiede	

@@ -59,7 +59,9 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
 
         tableView.delegate = self
         tableView.dataSource = self
+
         searchBar.delegate = self
+        searchBar.autocapitalizationType = .none
 
         if let path = Bundle.main.path(forResource: "words", ofType: "txt") {
             do {
