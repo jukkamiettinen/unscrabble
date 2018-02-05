@@ -93,7 +93,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         searchBar.resignFirstResponder()
     }
 
-    // MARK: - Private instance methods
+    // MARK: - Search Bar
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let text = searchBar.text else { return }
@@ -102,6 +102,10 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         Unscrabble.findWords(from: dictionary, with: text, matchingWords: &matchingWords, notAvailableCharacters: "", maxWordCount: text.count)
 
         tableView.reloadData()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
 
