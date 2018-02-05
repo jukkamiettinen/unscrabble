@@ -30,7 +30,7 @@ fastlane ios screenshots
 ```
 fastlane ios beta
 ```
-Description of what the lane does
+Submit a new Beta Build to Apple TestFlight
 
 ----
 
