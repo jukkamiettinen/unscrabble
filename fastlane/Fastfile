@@ -101,7 +101,9 @@ platform :ios do
     #---------------------------
     # Push to GitHub
     #---------------------------
-    push_to_git_remote
+    push_to_git_remote(
+      force: true
+    )
 
     #---------------------------
     # Clean up our files
