@@ -95,7 +95,7 @@ platform :ios do
     #---------------------------
     # Tag the submit
     #---------------------------
-    tag_name = "releases/#{get_version_number}"
+    tag_name = "releases/#{get_build_number}/#{get_version_number}"
     add_git_tag(tag: tag_name)
 
     #---------------------------
