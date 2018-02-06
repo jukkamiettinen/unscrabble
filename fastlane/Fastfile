@@ -95,7 +95,8 @@ platform :ios do
     #---------------------------
     # Tag the submit
     #---------------------------
-    add_git_tag
+    tag_name = "releases/#{get_version_number}"
+    add_git_tag(tag: tag_name)
 
     #---------------------------
     # Push to GitHub
