@@ -91,8 +91,10 @@ public class Unscrabble {
             var _availableCharacters = availableCharacters
             for index in word.indices {
                 if _availableCharacters.contains(word[index]) {
+                    guard _availableCharacters.count > 0 else { continue }
                     // Remove used character, not available anymore
-                    _availableCharacters.remove(at: _availableCharacters.index(of: word[index])!)
+                    let position = _availableCharacters.index(of: word[index])!
+                    _availableCharacters.remove(at: position)
                 } else if _availableCharacters.contains("_") {
 //                    word = word.replacingCharacters(in: index...index, with: String(word[index]).uppercased())
                     // Remove magic character, not available anymore
