@@ -20,8 +20,10 @@ platform :ios do
 
   lane :screenshots do
     snapshot 
-    frameit(white: true)
-    deliver
+    frame_screenshots(silver: true)
+    deliver(
+      force: true
+    )
   end
 
   desc "Description of what the lane does"
@@ -51,6 +53,66 @@ platform :ios do
             workspace: "Unscrabble2000.xcworkspace",
             include_bitcode: true)
     upload_to_testflight
+    # slack(message: "Successfully distributed a new beta build")
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  lane :testflight do
+    # ---------------------------
+    # Make sure we don't have any unchecked in files hanging out
+    # ---------------------------
+    ensure_git_status_clean
+
+    # ---------------------------
+    # We better be on release branch
+    # ---------------------------
+    ensure_git_branch(branch: 'master')
+
+    # ---------------------------
+    # Increment our version numbers. This needs to be done for all of our targets (app, notification center, watch etc.). Here the build and version number will match.
+    # ---------------------------
+    increment_version_number
+    version = get_version_number()
+    increment_build_number(build_number: version)
+
+    #---------------------------
+    # Commit version bump
+    #---------------------------
+    commit_version_bump(message: 'Bump version', force: true)
+
+    #---------------------------
+    # Build
+    #---------------------------
+    build_app(scheme: "Unscrabble2000",
+            workspace: "Unscrabble2000.xcworkspace",
+            include_bitcode: true)
+
+    #---------------------------
+    # Upload to TF
+    #---------------------------
+    pilot(skip_submission: true, username: "jukka.p.miettinen@icloud.com")
+
+    #---------------------------
+    # Tag the submit
+    #---------------------------
+    git_tag = "Version_" + get_version_number()
+    add_git_tag(tag: git_tag)
+
+    #---------------------------
+    # Push to GitHub
+    #---------------------------
+    push_to_git_remote(remote: 'origin', local_branch: 'master', remote_branch: 'master', force: false)
+
+    #---------------------------
+    # Clean up our files
+    #---------------------------
+    clean_build_artifacts
+
+    #---------------------------
+    # Resets git repo to a clean state by discarding uncommitted changes
+    #---------------------------
+    reset_git_repo
+
     # slack(message: "Successfully distributed a new beta build")
   end
 end
