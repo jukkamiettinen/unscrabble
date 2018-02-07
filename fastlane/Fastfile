@@ -71,7 +71,9 @@ platform :ios do
     # ---------------------------
     # Increment our version numbers. This needs to be done for all of our targets (app, notification center, watch etc.). Here the build and version number will match.
     # ---------------------------
-    increment_version_number
+    increment_version_number(
+      bump_type: "minor" # Automatically increment minor version number
+    )
 
     #---------------------------
     # Commit version bump
