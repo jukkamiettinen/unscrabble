@@ -87,6 +87,10 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         let matchingWord: String
         matchingWord = matchingWords[indexPath.row]
         cell.textLabel!.text = matchingWord
+
+        cell.textLabel!.attributedText = NSAttributedString(string: "cell.textLabel!.text", attributes:
+            [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+
         return cell
     }
 
