@@ -22,7 +22,8 @@ platform :ios do
     snapshot 
     frame_screenshots(silver: true)
     deliver(
-      force: true
+      force: true,
+      ignore_language_directory_validation: true
     )
   end
 
