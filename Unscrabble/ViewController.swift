@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Dictionary stored locally, faster to fetch
 let dictionaryPath = Bundle.main.path(forResource: "wlist", ofType: "xml")!
 let dictionaryUrl = URL(fileURLWithPath: dictionaryPath)
 let maxRetries = 20
