@@ -68,7 +68,7 @@ platform :ios do
     #---------------------------
     # Tag the submit
     #---------------------------
-    git_tag = "Version_" + get_version_number()
+    git_tag = "Unscrabble " + get_version_number() + "." + get_build_number()
     add_git_tag(tag: git_tag)
 
     #---------------------------
