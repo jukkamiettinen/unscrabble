@@ -56,7 +56,7 @@ platform :ios do
     #---------------------------
     commit_version_bump(
       message: 'Bump version',
-      workspace: "Unscrabble2000.xcworkspace",
+      xcodeproj: "Unscrabble2000.xcodeproj",
       force: true
     )
 
