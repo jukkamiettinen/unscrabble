@@ -83,6 +83,9 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         return matchingWords.count
     }
 
+    /**
+     Called before each cell is drawn. Populated with matching words.
+    */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let matchingWord: String
