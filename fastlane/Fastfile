@@ -57,6 +57,7 @@ platform :ios do
     commit_version_bump(
       message: 'Bump version',
       xcodeproj: "Unscrabble2000.xcodeproj",
+      include: %w[Unscrabble/Info.plist],
       force: true
     )
 
