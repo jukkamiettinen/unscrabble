@@ -46,7 +46,10 @@ platform :ios do
       bump_type: "patch" # Automatically increment patch version number
     )
 
-    increment_build_number
+    #---------------------------
+    # Increment build number and store new build number
+    #---------------------------
+    build_number = increment_build_number
 
     #---------------------------
     # Commit version bump
@@ -68,7 +71,7 @@ platform :ios do
     #---------------------------
     # Tag the submit
     #---------------------------
-    git_tag = "Unscrabble_" + get_version_number() + "." + get_build_number()
+    git_tag = "Unscrabble_" + get_version_number() + "." + build_number
     add_git_tag(tag: git_tag)
 
     #---------------------------
