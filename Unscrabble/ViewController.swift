@@ -91,12 +91,18 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         return cell
     }
 
+    /**
+     Triggered when table cell is selected. Removes focus from search bar.
+     */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         searchBar.resignFirstResponder()
     }
 
     // MARK: - Search Bar
 
+    /**
+     Triggered when search text changes. Reloads table view's data.
+     */
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let text = searchBar.text else { return }
 
@@ -106,6 +112,9 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         tableView.reloadData()
     }
 
+    /**
+     Triggered when search button is clicked. Removes focus from search bar.
+    */
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
