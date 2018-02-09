@@ -80,16 +80,17 @@ platform :ios do
     # Push to GitHub
     #---------------------------
     push_to_git_remote(remote: 'origin', local_branch: 'master', remote_branch: 'master', force: false)
+    
+    #---------------------------
+    # Upload to TF
+    #---------------------------
+    pilot(skip_submission: true, username: "jukka.p.miettinen@icloud.com")
 
     #---------------------------
     # Clean up our files
     #---------------------------
     clean_build_artifacts
 
-    #---------------------------
-    # Upload to TF
-    #---------------------------
-    pilot(skip_submission: true, username: "jukka.p.miettinen@icloud.com")
 
     #---------------------------
     # Resets git repo to a clean state by discarding uncommitted changes
