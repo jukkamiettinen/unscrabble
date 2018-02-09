@@ -87,7 +87,7 @@ platform :ios do
     #---------------------------
     # Resets git repo to a clean state by discarding uncommitted changes
     #---------------------------
-    reset_git_repo
+    # reset_git_repo
 
     # slack(message: "Successfully distributed a new beta build")
   end
