@@ -71,11 +71,6 @@ platform :ios do
     )
 
     #---------------------------
-    # Upload to TF
-    #---------------------------
-    pilot(skip_submission: true, username: "jukka.p.miettinen@icloud.com")
-
-    #---------------------------
     # Tag the submit
     #---------------------------
     git_tag = "Unscrabble_" + version_number + "." + build_number
@@ -90,6 +85,11 @@ platform :ios do
     # Clean up our files
     #---------------------------
     clean_build_artifacts
+
+    #---------------------------
+    # Upload to TF
+    #---------------------------
+    pilot(skip_submission: true, username: "jukka.p.miettinen@icloud.com")
 
     #---------------------------
     # Resets git repo to a clean state by discarding uncommitted changes
