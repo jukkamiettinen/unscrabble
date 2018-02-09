@@ -64,9 +64,11 @@ platform :ios do
     #---------------------------
     # Build
     #---------------------------
-    build_app(scheme: "Unscrabble2000",
-            workspace: "Unscrabble2000.xcworkspace",
-            include_bitcode: true)
+    build_app(
+      scheme: "Unscrabble2000",
+      workspace: "Unscrabble2000.xcworkspace",
+      include_bitcode: true
+    )
 
     #---------------------------
     # Upload to TF
