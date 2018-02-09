@@ -54,7 +54,11 @@ platform :ios do
     #---------------------------
     # Commit version bump
     #---------------------------
-    commit_version_bump(message: 'Bump version', force: true)
+    commit_version_bump(
+      message: 'Bump version',
+      include: %w[Info.plist]
+      force: true
+    )
 
     #---------------------------
     # Build
