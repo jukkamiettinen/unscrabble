@@ -42,7 +42,7 @@ platform :ios do
     # ---------------------------
     # Increment our version numbers. This needs to be done for all of our targets (app, notification center, watch etc.). Here the build and version number will match.
     # ---------------------------
-    increment_version_number(
+    version_number = increment_version_number(
       bump_type: "patch" # Automatically increment patch version number
     )
 
@@ -71,7 +71,7 @@ platform :ios do
     #---------------------------
     # Tag the submit
     #---------------------------
-    git_tag = "Unscrabble_" + get_version_number() + "." + build_number
+    git_tag = "Unscrabble_" + version_number + "." + build_number
     add_git_tag(tag: git_tag)
 
     #---------------------------
