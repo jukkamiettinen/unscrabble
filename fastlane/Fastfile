@@ -55,7 +55,7 @@ platform :ios do
     # Commit version bump
     #---------------------------
     commit_version_bump(
-      message: 'Bump version',
+      message: '[ci-skip] Bump version',
       xcodeproj: "Unscrabble2000.xcodeproj",
       include: %w[Unscrabble/Info.plist],
       force: true
