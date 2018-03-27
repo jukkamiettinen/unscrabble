@@ -71,6 +71,11 @@ platform :ios do
     )
 
     #---------------------------
+    # This will generate the changelog based on your last commits
+    #---------------------------
+    changelog_from_git_commits
+
+    #---------------------------
     # Tag the submit
     #---------------------------
     git_tag = "Unscrabble_" + version_number + "." + build_number
