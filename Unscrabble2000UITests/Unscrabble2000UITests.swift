@@ -37,7 +37,7 @@ class Unscrabble2000UITests: XCTestCase {
     func testWordInputWith7letters() {
         testInputAgainstVisibleCells(
             searchText: "abcdefg",
-            foundWords: ["ad", "cafe"]
+            foundWords: ["cafe", "ad"]
         )
     }
 
@@ -59,7 +59,7 @@ class Unscrabble2000UITests: XCTestCase {
         snapshot("01WithoutInput")
         testInputAgainstVisibleCells(
             searchText: "testi",
-            foundWords: ["esi", "ies", "itse", "sei", "setti", "testi", "tie", "ties", "tse"]
+            foundWords: ["setti", "testi", "itse", "ties", "esi", "ies", "sei", "tie", "tse"]
         )
         snapshot("02WithInput")
     }
