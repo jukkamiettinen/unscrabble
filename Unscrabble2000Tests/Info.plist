@@ -15,14 +15,8 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-<<<<<<< HEAD
-	<string>1.5.37</string>
-	<key>CFBundleVersion</key>
-	<string>84</string>
-=======
 	<string>1.5.47</string>
 	<key>CFBundleVersion</key>
 	<string>94</string>
->>>>>>> 4af0052e9aa210de1e79a4a76727aa10b4b318a5
 </dict>
 </plist>
