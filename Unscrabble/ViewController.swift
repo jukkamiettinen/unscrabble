@@ -10,38 +10,7 @@ import UIKit
 /// Dictionary stored locally, faster to fetch
 let dictionaryPath = Bundle.main.path(forResource: "wlist", ofType: "xml")!
 let dictionaryUrl = URL(fileURLWithPath: dictionaryPath)
-let maxRetries = 20
 let minCharCount = 2
-
-/**
- Collection of array extensions
- */
-extension Array {
-    /**
-     Returns randomly shuffled array.
-     */
-    mutating func shuffle() {
-        for i in 0..<(count - 1) {
-            let j = Int(arc4random_uniform(UInt32(count - i))) + i
-            guard i != j else { continue }
-            self.swapAt(i, j)
-        }
-    }
-}
-
-/**
- Collection of string extensions
- */
-extension String {
-    /**
-     Returns squeezed string where all duplicate characters are removed.
-     Example: "aanndpp" -> "andp"
-     */
-    var squeezed: String {
-        var set = Set<Character>()
-        return String(filter{ set.insert($0).inserted })
-    }
-}
 
 class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!

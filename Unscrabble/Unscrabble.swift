@@ -92,12 +92,12 @@ public class Unscrabble {
             for index in word.indices {
                 if _availableCharacters.contains(word[index]) {
                     // Remove used character, not available anymore
-                    _availableCharacters.remove(at: _availableCharacters.index(of: word[index])!)
+                    _availableCharacters.remove(at: _availableCharacters.firstIndex(of: word[index])!)
                 } else if _availableCharacters.contains("_") {
                     // Highlight character that is replacing magic character
                     word = word.replacingCharacters(in: index...index, with: String(word[index]).uppercased())
                     // Remove magic character, not available anymore
-                    _availableCharacters.remove(at: _availableCharacters.index(of: "_")!)
+                    _availableCharacters.remove(at: _availableCharacters.firstIndex(of: "_")!)
                 } else {
                     matching = false
                     // At least one character did not match, break the for loop
