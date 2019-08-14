@@ -56,9 +56,9 @@ public class Unscrabble {
      - parameter availableCharacters: Available characters
      - parameter matchingWords: Words that match all given criteria
      - parameter notAvailableCharacters: Characters that word should not contain
-     - parameter maxWordCount: max word length
+     - parameter maxCharCount: max word length
      */
-    static public func findWords(from dictionary: [String], with availableCharacters: String, matchingWords: inout [String], notAvailableCharacters: String, maxWordCount: Int) {
+    static public func findWords(from dictionary: [String], with availableCharacters: String, matchingWords: inout [String], notAvailableCharacters: String, maxCharCount: Int) {
         var availableCharacters = availableCharacters
         var mustContain = ""
         let upperCase = CharacterSet.uppercaseLetters
@@ -74,9 +74,9 @@ public class Unscrabble {
         for word in dictionary {
             var matching = true
 
-            let word = word.trimmingCharacters(in: .whitespacesAndNewlines)
+            var word = word.trimmingCharacters(in: .whitespacesAndNewlines)
 
-            guard word.count >= minWordCount, word.count <= maxWordCount, availableCharacters.count >= word.count else { continue }
+            guard word.count >= minCharCount, word.count <= maxCharCount, availableCharacters.count >= word.count else { continue }
 
             for character in mustContain {
                 if !word.contains(character) {
@@ -94,7 +94,8 @@ public class Unscrabble {
                     // Remove used character, not available anymore
                     _availableCharacters.remove(at: _availableCharacters.index(of: word[index])!)
                 } else if _availableCharacters.contains("_") {
-//                    word = word.replacingCharacters(in: index...index, with: String(word[index]).uppercased())
+                    // Highlight character that is replacing magic character
+                    word = word.replacingCharacters(in: index...index, with: String(word[index]).uppercased())
                     // Remove magic character, not available anymore
                     _availableCharacters.remove(at: _availableCharacters.index(of: "_")!)
                 } else {
@@ -112,7 +113,7 @@ public class Unscrabble {
                 if word.contains(character) {
                     matching = false
                     // At least one character did not match, break the for loop
-                    // and move on to next wor
+                    // and move on to next word
                     break
                 }
             }
@@ -133,7 +134,7 @@ public class Unscrabble {
         return points(word: this) > points(word: that)
     }
 
-    static private func points(word: String) -> Int {
+    static func points(word: String) -> Int {
         var sum = 0
         for character in word.unicodeScalars {
             if let points = alphabets.filter({ (alphabet) -> Bool in

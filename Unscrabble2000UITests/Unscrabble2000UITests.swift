@@ -17,14 +17,15 @@ extension XCUIApplication {
 class Unscrabble2000UITests: XCTestCase {
     override func setUp() {
         super.setUp()
+
         continueAfterFailure = false
+
         let app = XCUIApplication()
         setupSnapshot(app)
         app.launch()
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
 
@@ -36,20 +37,30 @@ class Unscrabble2000UITests: XCTestCase {
     func testWordInputWith7letters() {
         testInputAgainstVisibleCells(
             searchText: "abcdefg",
-            foundWords: ["cafe", "ad"])
+            foundWords: ["ad", "cafe"]
+        )
     }
 
     func testWordInputWith4letters() {
         testInputAgainstVisibleCells(
             searchText: "lego",
-            foundWords: ["ego", "geo"])
+            foundWords: ["ego", "geo"]
+        )
+    }
+
+    func testWordInputWithMagicCharacters() {
+        testInputAgainstVisibleCells(
+            searchText: "B__",
+            foundWords: ["PUb", "bAR", "WEb", "bIO", "bOA", "AbI"]
+        )
     }
 
     func testWordInputWith5letters() {
         snapshot("01WithoutInput")
         testInputAgainstVisibleCells(
             searchText: "testi",
-            foundWords: ["setti", "testi", "itse", "ties", "esi", "ies", "sei", "tie", "tse"])
+            foundWords: ["esi", "ies", "itse", "sei", "setti", "testi", "tie", "ties", "tse"]
+        )
         snapshot("02WithInput")
     }
 

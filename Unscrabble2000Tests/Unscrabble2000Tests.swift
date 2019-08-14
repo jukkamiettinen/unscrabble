@@ -24,32 +24,17 @@ class Unscrabble2000Tests: XCTestCase {
     }
     
     func testWordInputWith7letters() {
-        Unscrabble.findWords(
-            from: dictionary,
-            with: "abcdefg",
-            matchingWords: &matchingWords,
-            notAvailableCharacters: "",
-            maxWordCount: 5)
+        Unscrabble.findWords(from: dictionary, with: "abcdefg", matchingWords: &matchingWords, notAvailableCharacters: "", maxCharCount: 5)
         XCTAssertEqual(matchingWords, ["cafe", "ad"])
     }
 
     func testWordInputMustContainCharacterG() {
-        Unscrabble.findWords(
-            from: dictionary,
-            with: "G__",
-            matchingWords: &matchingWords,
-            notAvailableCharacters: "",
-            maxWordCount: 3)
-        XCTAssertEqual(matchingWords, ["ego", "geo", "ges", "gis"])
+        Unscrabble.findWords(from: dictionary, with: "G__", matchingWords: &matchingWords, notAvailableCharacters: "", maxCharCount: 3)
+        XCTAssertEqual(matchingWords, ["EgO", "gEO", "gES", "gIS"])
     }
 
     func testWordInputMustContainCharacterÖ() {
-        Unscrabble.findWords(
-            from: dictionary,
-            with: "Ö_",
-            matchingWords: &matchingWords,
-            notAvailableCharacters: "",
-            maxWordCount: 2)
-        XCTAssertEqual(matchingWords, ["yö", "öh"])
+        Unscrabble.findWords(from: dictionary, with: "Ö_", matchingWords: &matchingWords, notAvailableCharacters: "", maxCharCount: 2)
+        XCTAssertEqual(matchingWords, ["Yö", "öH"])
     }
 }

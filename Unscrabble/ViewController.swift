@@ -11,7 +11,7 @@ import UIKit
 let dictionaryPath = Bundle.main.path(forResource: "wlist", ofType: "xml")!
 let dictionaryUrl = URL(fileURLWithPath: dictionaryPath)
 let maxRetries = 20
-let minWordCount = 2
+let minCharCount = 2
 
 /**
  Collection of array extensions
@@ -91,6 +91,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         let matchingWord: String
         matchingWord = matchingWords[indexPath.row]
         cell.textLabel!.text = matchingWord
+        cell.detailTextLabel!.text = String(Unscrabble.points(word: matchingWord)) + " p."
         return cell
     }
 
@@ -110,7 +111,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         guard let text = searchBar.text else { return }
 
         matchingWords = []
-        Unscrabble.findWords(from: dictionary, with: text, matchingWords: &matchingWords, notAvailableCharacters: "", maxWordCount: text.count)
+        Unscrabble.findWords(from: dictionary, with: text, matchingWords: &matchingWords, notAvailableCharacters: "", maxCharCount: text.count)
 
         tableView.reloadData()
     }
